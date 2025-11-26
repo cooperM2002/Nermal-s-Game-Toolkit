@@ -1,0 +1,19 @@
+Player
+
+	scripts:
+		
+			- PlayerMotor -> has:
+				
+					-movement
+					-sprint
+					-crouch
+					-jump, gravity
+					-push rigidbodies
+					-reads inputs
+
+					exposes:
+						
+						-IsGrounded
+						-IsSprinting
+						-Velocity vec3
+						-MoveInput vec2
