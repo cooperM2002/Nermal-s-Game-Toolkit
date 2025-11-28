@@ -32,7 +32,7 @@ public class FPSinput : MonoBehaviour
     [Header("Jump / Gravity")]
 
     public float _jumpHeight = 0.85f;           // the 0.85 in your GDS JUMP_IMPULSE
-    public float _gravity = Physics.gravity.y;  // GRAVITY (positive; we'll subtract)
+    public float _gravity = (3f)*15.34f;  // GRAVITY (positive; we'll subtract)
 
     [Header("Crouch")]
 
@@ -138,9 +138,14 @@ public class FPSinput : MonoBehaviour
          *************/
 
         //desired direction
-        if (Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             wishJump = true;
+        }
+        else
+        {
+            if (!isGrounded) wishJump = false;   //omit jump input while in air
+
         }
 
         /////////////////////////////////
@@ -151,9 +156,9 @@ public class FPSinput : MonoBehaviour
          *  GROUND   *
          *************/
 
-        if (isGrounded)
+        if (isGrounded) //GROUNDED
         {
-            if (wishJump)
+            if (wishJump)   //PRESSED SPACE   
             {
                 //JUMP FORUMLA
                 velocity.y = Mathf.Sqrt(2f * _gravity * _jumpHeight);

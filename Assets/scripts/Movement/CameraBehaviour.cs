@@ -24,7 +24,7 @@ public class CameraBehaviour : MonoBehaviour
 
 
 
-    }
+    } 
 
     //update
     void Update()

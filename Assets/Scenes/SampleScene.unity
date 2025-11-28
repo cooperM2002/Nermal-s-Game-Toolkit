@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24241cbc4d719a141a94007810fe721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowIndicator: {fileID: 7525325666854147563, guid: cef79b62c1aeaf545ac6c9a94bdbd717, type: 3}
+  indicator: {fileID: 7525325666854147563, guid: cef79b62c1aeaf545ac6c9a94bdbd717, type: 3}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,12 +1856,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d91eb1942574a4388af0ef3802680b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 4
-  _sprintModifier: 1.5
-  _jumpHeight: 1
-  _airSpeedMax: 3
-  _airAcceleration: 25
   PUSHFORCE: 1
+  _maxVelocityGround: 6
+  _maxVelocityAir: 0.6
+  _maxAcceleration: 60
+  _stopSpeed: 1.5
+  _friction: 4
+  _jumpHeight: 1.5
+  _gravity: 20
+  _crouchMultiplier: 0.5
 --- !u!1 &1129921844
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,7 +7405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613f0caf9b687354b94eb07f40cf36cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6977293630408603830, guid: 250d290be379d6e4db95c785cc8a43f8, type: 3}
+  enemyPrefab: {fileID: 5527264452389627151, guid: 101ddf57867523d4f95f0bd5f08b1a32, type: 3}
 --- !u!4 &1819446724
 Transform:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ public class WanderingAI : MonoBehaviour
 
         //ray in same pos and point in same dir as character
         Ray ray= new Ray(transform.position,transform.forward);
+        
         RaycastHit hit;
 
         //perform raycasr with curcular volume around ray
