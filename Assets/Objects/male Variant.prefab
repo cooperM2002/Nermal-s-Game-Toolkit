@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -530943362975806182, guid: 64227a89550289d4c9760359450b66a6, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1372618844681230989, guid: 64227a89550289d4c9760359450b66a6, type: 3}
       propertyPath: m_Name
       value: male Variant

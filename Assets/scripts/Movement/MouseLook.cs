@@ -3,6 +3,9 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
+    public Vector2 MouseDelta { get; private set; }
+
+
     public enum RotationAxes
     {
         MouseXandY = 0,
@@ -67,10 +70,15 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
 
-
-
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
+
+        MouseDelta =
+        new Vector2(
+            mouseX,
+            mouseY
+        );
+
 
 
         if (axes == RotationAxes.MouseX){

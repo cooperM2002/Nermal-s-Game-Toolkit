@@ -5,6 +5,8 @@ using UnityEngine;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject spawnLocation;
+
     private GameObject enemy;
 
 
@@ -28,10 +30,12 @@ public class SceneController : MonoBehaviour
             //copy prefab
             enemy = Instantiate(enemyPrefab) as GameObject;
 
+            //spawn location
+            enemy.transform.position = spawnLocation.transform.position;//new Vector3(-1, .2f, 0);
 
-            enemy.transform.position = new Vector3(0, .2f, 0);
-            float angle = Random.Range(0, 360);
-            enemy.transform.Rotate(0, angle, 0);
+            // //spawn rotation
+            // float angle = Random.Range(0, 360);
+            // enemy.transform.Rotate(0, angle, 0);
         }
 
     }

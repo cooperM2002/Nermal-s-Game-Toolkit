@@ -17,6 +17,8 @@ public class ReactiveTarget : MonoBehaviour
     
     */
 
+    public float speed;
+
     public void ReactToHit(Transform hitBone, Vector3 hitPoint, Vector3 hitNormal)
     {
         Debug.Log("ReactToHit on " + gameObject.name);
@@ -28,6 +30,7 @@ public class ReactiveTarget : MonoBehaviour
         //SET DEATH
         if (behaviour != null)
         {
+            speed = behaviour.speed;
             behaviour.SetAlive(false);
             behaviour.enabled = false;
         }
@@ -37,7 +40,7 @@ public class ReactiveTarget : MonoBehaviour
         if (ragdoll != null)
         {
             //direction eminating from center outward
-            Vector3 hitDirection = -hitNormal;
+            Vector3 hitDirection = new Vector3(-hitNormal.x,-hitNormal.y,-hitNormal.z);
 
             //apply death
 
@@ -46,7 +49,7 @@ public class ReactiveTarget : MonoBehaviour
                 hitBone,
                 hitPoint,
                 hitDirection,
-                3f            //with this force
+                speed            //with this force
             );
         }
 

@@ -251,7 +251,7 @@ public class RagdollOnDeath : MonoBehaviour
         {
             case BodyPart.Head:
                 // Example: stronger knockback, extra effects
-                force *= 3f;
+                force *= 30f;
                 Debug.Log("HEADSHOT on " + hitBone.name);
                 // TODO: spawn headshot VFX, award bonus points, etc.
                 break;
@@ -269,7 +269,7 @@ public class RagdollOnDeath : MonoBehaviour
                 break;
 
             case BodyPart.Leg:
-                force *= 0.1f;
+                force *= 10f;
                 Debug.Log("Leg hit");
                 // TODO: maybe slower movement if you do non-instant kills later
                 break;

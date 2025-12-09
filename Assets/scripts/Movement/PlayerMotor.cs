@@ -6,45 +6,71 @@ using UnityEngine;
 public class FPSinput : MonoBehaviour
 {
 
+
+
+    /////////////////////////////
+    ///   EXPOSED VARIAVLES   ///   ----> exported to other scripts
+    /////////////////////////////
+
+    /*------------------------------------------------------------------------------------------*/
+
+    public bool isGrounded { get; private set; }
+    public bool isSprinting { get; private set; }
+    public bool isCrouching { get; private set; }  
+
+    public Vector2 MoveInput { get; private set; }    //world space velocity
+    
+    //READ ONLY
+    
+    public Vector3 Velocity => velocity;
+    public bool IsMoving => MoveInput.sqrMagnitude > 0.01f;
+    public Vector3 myPosition => transform.position;
+
+
+    /*------------------------------------------------------------------------------------------*/
+
+
+    //////////////////////
+    ///     FIELDS     ///
+    //////////////////////
+
+
     [Header("Collisions")]
     public float PUSHFORCE = 1.0f;
 
-    // PUBLIC STATE
-    public bool isGrounded { get; private set; }
-    public bool notJumping { get; private set; }
-
-    //world space velocity
-    private Vector3 velocity;
-    public Vector2 MoveInput { get; private set; }
- 
 
     [Header("Ground / Air Speeds")]
-
     public float _maxVelocityGround = 6.0f;  // MAX_VELOCITY_GROUND
-    public float _maxVelocityAir = 0.6f;     // MAX_VELOCITY_AIR  
+    public float _maxVelocityAir = 0.6f;     // MAX_VELOCITY_AIR 
+    public float _sprintModifier = 1.5f;
+
 
     [Header("Acceleration / Friction")]
-
     public float _maxAcceleration = 60.0f;  // 10 * maxVelocityGround (tweak)
     public float _stopSpeed = 1.5f;         // STOP_SPEED
     public float _friction = 4.0f;          // the 4 multiplier in drop 
 
-    [Header("Jump / Gravity")]
 
+    [Header("Jump / Gravity")]
     public float _jumpHeight = 0.85f;           // the 0.85 in your GDS JUMP_IMPULSE
     public float _gravity = (3f)*15.34f;  // GRAVITY (positive; we'll subtract)
 
-    [Header("Crouch")]
 
+    [Header("Crouch")]
     public float _crouchMultiplier = 0.5f;       // for height; crouchHeight
 
-    // components
-    private CharacterController charController;
-    private float standHeight;
-    private float crouchHeight;
+    /*------------------------------------------------------------------------------------------*/
 
-    // internal
-    private bool wishJump;
+    //////////////////////////////
+    ///   INTERNAL VARIABLES   ///
+    //////////////////////////////
+    private CharacterController charController;
+    private Vector3 velocity;
+    private float standHeight,crouchHeight;
+    private bool wishJump,wishSprint;
+
+    /*------------------------------------------------------------------------------------------*/
+
 
     void Start()
     {
@@ -59,6 +85,7 @@ public class FPSinput : MonoBehaviour
 
     void Update()
     {
+        //myPosition = transform.position;
         float dt = Time.deltaTime;
 
         /******************
@@ -66,20 +93,15 @@ public class FPSinput : MonoBehaviour
          ******************/
          
         isGrounded = charController.isGrounded;
-        notJumping = (isGrounded && velocity.y <= 0f);
+        wishSprint = Input.GetKey(KeyCode.LeftShift) && MoveInput.y > 0.1f;   //lshift+ moveing forward
+        isSprinting = wishSprint && isGrounded;
 
         /**************
          *   CROUCH   *
          **************/
 
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            charController.height = crouchHeight;
-        }
-        else
-        {
-            charController.height = standHeight;
-        }
+        if (Input.GetKey(KeyCode.LeftControl))  {   charController.height = crouchHeight;   }
+        else                                    {   charController.height = standHeight;   }
 
         /****************
          * GROUND STATE *
@@ -121,14 +143,8 @@ public class FPSinput : MonoBehaviour
 
         //Store 2d input for other systems
         //MoveInput = inputDir.sqrMagnitude > 1f ? inputDir.normalized : inputDir;
-        if (inputDir.sqrMagnitude > 1f) 
-        { 
-            MoveInput = inputDir.normalized; 
-        }
-        else 
-        { 
-            MoveInput = inputDir;  
-        }
+        if (inputDir.sqrMagnitude > 1f) {   MoveInput = inputDir.normalized;    }
+        else                            {   MoveInput = inputDir;   }
 
         //normalize moveDirWorld
         Vector3 wishDir = moveDirWorld.normalized;
@@ -137,16 +153,15 @@ public class FPSinput : MonoBehaviour
          *   JUMP    *
          *************/
 
-        //desired direction
-        if (isGrounded && Input.GetButtonDown("Jump"))
-        {
-            wishJump = true;
-        }
-        else
-        {
-            if (!isGrounded) wishJump = false;   //omit jump input while in air
+        //DESIRED DIR
+        if (isGrounded && Input.GetButtonDown("Jump"))  {   wishJump = true;    }
+        else                                            {   if (!isGrounded) wishJump = false;  }   //omit jump input while in air
 
-        }
+        /**************
+         *   sprint   *
+         **************/
+        if (isSprinting && !isGrounded) wishSprint = false; 
+
 
         /////////////////////////////////
         // CAMERA BOB / VIEW TILT HOOK //
@@ -156,22 +171,31 @@ public class FPSinput : MonoBehaviour
          *  GROUND   *
          *************/
 
-        if (isGrounded) //GROUNDED
+        
+        ////GROUNDED
+        if (isGrounded)
         {
-            if (wishJump)   //PRESSED SPACE   
+            /////JUMPING
+            if (wishJump)
             {
-                //JUMP FORUMLA
+                //change y velocity
                 velocity.y = Mathf.Sqrt(2f * _gravity * _jumpHeight);
 
                 //horizontal update uses AIR behaviour
                 velocity = UpdateVelocityAir(wishDir, dt);
                 wishJump = false;
             }
+
+            ////NOT JUMPING
             else
             {
+
                 velocity = UpdateVelocityGround(wishDir, dt);
             }
+
         }
+
+        ////NOT GROUNDED
         else
         {
             //apply gravity (downwards)
@@ -227,22 +251,28 @@ public class FPSinput : MonoBehaviour
     {
         // Friction
         float speed = velocity.magnitude;
+
         if (speed > 0f)
         {
             float control = Mathf.Max(_stopSpeed, speed);
-            // drop = control * 4 * delta  (the "4" is friction strength)
-            float drop = control * _friction * delta;
-
+            float drop = control * _friction * delta;                   // drop = control * 4 * delta  (the "4" is friction strength)
             float newSpeed = Mathf.Max(speed - drop, 0f);
+
             if (newSpeed != speed)
             {
                 velocity *= newSpeed / speed;
             }
         }
 
+
+        //raises max allowed speed
+        float maxSpeed = RaiseSpeed(_maxVelocityGround, _sprintModifier);
+
         // Then accelerate along wish direction up to ground max
-        return Accelerate(wishDir, _maxVelocityGround, delta);
+        return Accelerate(wishDir, maxSpeed, delta);
     }
+
+
 
 
 
@@ -255,8 +285,21 @@ public class FPSinput : MonoBehaviour
     // Air movement: same accelerate, but using air max velocity
     private Vector3 UpdateVelocityAir(Vector3 wishDir, float delta)
     {
-        return Accelerate(wishDir, _maxVelocityAir, delta);
+         //raises max allowed speed
+        float maxSpeed = RaiseSpeed(_maxVelocityAir, _sprintModifier);
+        return Accelerate(wishDir, maxSpeed , delta);
     }
+
+
+
+    //raises maximum allowed speed by a modifier
+    private float RaiseSpeed(float maxVel, float modifier)
+    {
+        float maxSpeed = maxVel;
+        if (isSprinting) maxSpeed *= modifier;
+        return maxSpeed;
+    }
+
 
     /*
     (1) OnControllerColliderHit => (unity callback)
@@ -280,6 +323,7 @@ public class FPSinput : MonoBehaviour
         *** runs once per collision -> decides whether and how to push the thing bumped into ***
      
      */
+
 
 
     void OnControllerColliderHit(ControllerColliderHit hit)
