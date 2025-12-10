@@ -139,7 +139,7 @@ public class WanderingAI : MonoBehaviour
         isAlive = alive;
     }
 
-    void OnDrawGizmosSelected()   // or OnDrawGizmosSelected if you only want it when selected
+    void OnDrawGizmos()   // or OnDrawGizmosSelected if you only want it when selected
     {
 
         // Vector3 start =
@@ -159,12 +159,19 @@ public class WanderingAI : MonoBehaviour
         // Gizmos.DrawLine(start, end);
         // //Gizmos.DrawWireSphere(start, radius);
         // Gizmos.DrawWireSphere(end, radius);
+        // Only draw for the main world camera
+        if (!Camera.current.CompareTag("MainCamera")) return;
         Ray ray= new Ray(transform.position,transform.forward);
 
         float radius  = viewRadius;
         float range = obstacleRange;
-        
-        Vector3 start = ray.origin;
+
+        Vector3 start = new Vector3(
+            ray.origin.x,
+            ray.origin.y+2f,
+            ray.origin.z
+            );
+            
         Vector3 dir   = ray.direction.normalized;
         Vector3 end = start + dir * range;
 
