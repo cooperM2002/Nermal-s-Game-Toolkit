@@ -54,6 +54,9 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
             </div>
         </details>
     </td></tr>
+    <p align="center">
+      <img src="docs/demo.gif" alt="Demo" width="700" />
+    </p>
 </table>
 
 ### <p>1. Interaction System</p>
