@@ -19,7 +19,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 # Components 
 
 
-1. Interaction System
+1. ## Interaction System
 <details>
   <summary><b>Interaction System</b></summary>
 
@@ -32,7 +32,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
   </div>
 </details>
 
-1. Interaction System
+1. ## Interaction System
 <details>
   <summary><b>Interaction System</b></summary>
 
@@ -45,7 +45,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
   </div>
 </details>
 
-1. Interaction System
+1. ## Interaction System
 <details>
   <summary><b>Interaction System</b></summary>
 
