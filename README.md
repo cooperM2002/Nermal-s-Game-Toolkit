@@ -38,6 +38,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
         </details>
     </td></tr>
 </table>
+
 <table>
     <tr><td>
         <details>
@@ -53,6 +54,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
         </details>
     </td></tr>
 </table>
+
 <table>
     <tr><td>
         <details>
