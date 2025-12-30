@@ -20,9 +20,6 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 
 ### <p>1. Interaction System</p>
-
-
-
 <table>
     <tr><td>
         <details>
@@ -39,6 +36,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
     </td></tr>
 </table>
 
+### <p>1. Interaction System</p>
 <table>
     <tr><td>
         <details>
@@ -55,6 +53,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
     </td></tr>
 </table>
 
+### <p>1. Interaction System</p>
 <table>
     <tr><td>
         <details>
