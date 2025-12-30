@@ -21,7 +21,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 ### <p>1. Interaction System</p>
 <details>
-  <summary><b><p>Details</p></b></summary>
+  <p><summary><b>Details</p></summary></b>
 
   <div style="border: 1px solid black; padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
     <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
