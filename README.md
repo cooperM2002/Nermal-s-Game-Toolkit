@@ -20,6 +20,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 
 <h2> 1. Interaction System </h2>
+====================
 <details>
   <summary><b>Interaction System</b></summary>
 
