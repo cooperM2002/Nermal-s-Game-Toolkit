@@ -15,11 +15,11 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 - **Minimal coupling**: avoid “god managers”; prefer local responsibilities + messaging
 <br /><br />
 
-##Components 
-1. ###system
-2. ###system
-3. ###system
-4. ###system
+## Components 
+1. #### system
+2. #### system
+3. #### system
+4. #### system
 
 
 
