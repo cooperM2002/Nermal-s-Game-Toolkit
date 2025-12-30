@@ -21,7 +21,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 ### <p>1. Interaction System</p>
 <details>
-  <summary><b>Interaction System</b></summary>
+  <summary><b>Detials</b></summary>
 
   <div style="border: 1px solid black; padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
     <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
@@ -32,31 +32,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
   </div>
 </details>
 
-1. ## Interaction System
-<details>
-  <summary><b>Interaction System</b></summary>
 
-  <div style="border: 1px solid black; padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
-    <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
-    <ul>
-      <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
-      <li><b>Demo:</b> <code>Demo_Interaction.unity</code></li>
-    </ul>
-  </div>
-</details>
-
-1. ## Interaction System
-<details>
-  <summary><b>Interaction System</b></summary>
-
-  <div style="border: 1px solid black; padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
-    <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
-    <ul>
-      <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
-      <li><b>Demo:</b> <code>Demo_Interaction.unity</code></li>
-    </ul>
-  </div>
-</details>
 
 
 
