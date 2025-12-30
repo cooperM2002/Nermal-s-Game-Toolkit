@@ -24,11 +24,11 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 
 <table>
+    <tr><td>
     <details>
-        <tr><td>
+        
 
   <summary><b><sub>Interaction System</sub></b></summary><br />
-    </td></tr>
 
   <div style="margin-left: 16px; margin-top: 8px;">
     <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
@@ -39,6 +39,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
     </ul>
   </div>
 </details>
+    </td></tr>
 
 </table>
 
