@@ -28,7 +28,3 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 
 
-## Quick start
-1. Clone:
-   ```bash
-   git clone https://github.com/[you]/[repo].git
