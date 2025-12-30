@@ -1,7 +1,7 @@
 # [Project Name] — A Reusable Systems Toolkit for Unity (Immersive-Sim Style)
 
 A Unity project focused on building a **toolkit of reusable, system-based gameplay mechanics** that draw heavy inspiration from the Immersive Sim design philosophy with an emphasis on Valve-like game feel.  
-**Goal:** provide clean, composable *systems* (inventory, interaction, AI perception, damage, etc...) that can be easily extended and customized.
+**Goal:** provide clean, composable *systems* (inventory, interaction, AI perception, damage, etc...) that can be easily extended and customized.      
 
 
 
@@ -9,7 +9,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 ### What this is:
 - A collection of **reusable gameplay systems** implemented as modular components
-- A **reference project** with working scenes, examples, and test setups
+- A **reference project** with working scenes, examples, and test setups      
 
 
 
@@ -18,7 +18,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 - **Replaceable**: you can swap implementations (ex: different inventory UI or interaction method)
 - **Inspectable**: built-in debug views/logs/gizmos
 - **Data-driven**: ScriptableObjects for definitions/configs when it helps
-- **Minimal coupling**: avoid “god managers”; prefer local responsibilities + messaging
+- **Minimal coupling**: avoid “god managers”; prefer local responsibilities + messaging      
 
 
 
