@@ -30,6 +30,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
                 <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
                 <li><b>Demo:</b> <code>Demo_Interaction.unity</code></li>
                 <li><b>Extension:</b> implement <code>IInteractable</code></li>
+                <li>![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)</li>
             </ul>
             </div>
         </details>
