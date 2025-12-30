@@ -21,7 +21,11 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 ### <p>1. Interaction System</p>
 
-<details>
+
+
+<table>
+  <tr><td>
+    <details>
   <summary><b><sub>Interaction System</sub></b></summary><br />
 
   <div style="margin-left: 16px; margin-top: 8px;">
@@ -33,6 +37,8 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
     </ul>
   </div>
 </details>
+  </td></tr>
+</table>
 
 
 
