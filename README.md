@@ -26,7 +26,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 <table>
     <tr><td>
         <details>
-            <summary><b><i>details</i></b></summary>
+            <summary><i>details</i></summary>
             <div>
             <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
             <ul>
