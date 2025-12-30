@@ -3,49 +3,58 @@ using UnityEngine;
 public class Interacting : MonoBehaviour
 {
 
-    KeyCode interactionKey = KeyCode.E;
+
+    KeyCode interactionKey = KeyCode.F;
     public float interactionRange = 2.0f;
 
-    //start
-    void Start()
-    {
-        
-    }
+
 
     //update
     void Update()
     {
-        if (Input.GetKeyDown(interactionKey)){
-            AttemptInteraction();
-        }
+        if (Input.GetKeyDown(interactionKey)) AttemptInteraction();
     }
+
+
 
     void AttemptInteraction()
     {
-        //create a ray from curr pos in the forward direction
-        var ray = new Ray(transform.position, transform.forward);
+        //get hit
+        RaycastHit hitInfo;
+        bool hitSomething = TryGetHit(interactionRange, out hitInfo);
 
-        RaycastHit hit;
-
-        //layer mask respresents everything except player
-        var notPlayer = ~(1 << LayerMask.NameToLayer("Player"));
-
-        //
-        var layerMask = Physics.DefaultRaycastLayers & notPlayer;
-
-        //raycast out only onto every layer except layer, everything except player
-        if(Physics.Raycast(ray, out hit, interactionRange, layerMask))
+        //perform raycast
+        if(hitSomething)
         {
             //try to get interactable object
-            var interactable = hit.collider.GetComponent<Interactable>();
-
-            //does it exist?
-            if(interactable != null)
-            {
-                //it has been interacted with
-                interactable.Interact(gameObject);
-            }
+            Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
+            if(interactable != null) interactable.Interact(gameObject); //it has been interacted with
         }
 
+    }
+
+
+    /// <summary>
+    /// Lives on the Main Camera, performs check raycasts with a player mask. For interactions.
+    /// </summary>
+    /// <param name="range"></param>
+    /// <param name="hit"></param>
+    /// <returns></returns>
+    public bool TryGetHit(float range, out RaycastHit hit)
+    {
+        Ray ray = new Ray(transform.position, transform.forward);   //origin, direction
+
+        int notPlayer = ~(1 << LayerMask.NameToLayer("Player"));    //look @ ~(Player)
+        int mask = Physics.DefaultRaycastLayers & notPlayer;        //everything except player is looked at
+
+        bool hitSomething = Physics.Raycast(
+
+            ray,        //origin, direction
+            out hit,    //CBR on hitInfo, modifies hitInfo
+            range,      //max distance
+            mask        //only on specified layers
+            );
+
+        return hitSomething;
     }
 }

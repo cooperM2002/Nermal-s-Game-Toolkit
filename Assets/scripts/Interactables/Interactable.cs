@@ -5,20 +5,14 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
 
-    public void Interact(GameObject fromObject)
+    /// <summary>
+    /// Overridable generic interact method, called on ray hit of Interactables collider.
+    /// </summary>
+    /// <param name="fromObject"></param>
+    public virtual void Interact(GameObject fromObject)
     {
-        Debug.LogFormat("interacted with by {0}", fromObject);
+        Debug.LogFormat($"interacted with by {fromObject.name}", fromObject);
     }
 
-    //start
-    void Start()
-    {
-        
-    }
 
-    //update
-    void Update()
-    {
-        
-    }
 }
