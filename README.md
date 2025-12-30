@@ -8,7 +8,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 
 
-# <p>Core design principles</p>
+## Core design principles 
 - **Composable**: systems should interoperate through interfaces/events, not hard references
 - **Replaceable**: you can swap implementations (ex: different inventory UI or interaction method)
 - **Inspectable**: built-in debug views/logs/gizmos
