@@ -34,8 +34,6 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
             </div>
             <p align="center">
               <img src="docs/demo.gif" alt="Demo" width="700" />
-              <br />
-              <sub>Interaction + pickup pipeline demo</sub>
             </p>
         </details>
     </td></tr>
