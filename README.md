@@ -7,6 +7,14 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 **Goal:** provide clean, composable *systems* (inventory, interaction, AI perception, damage, etc.) that can be easily extended and customized.
 <br /><br />
 
+<div style="margin-left: 20px;">
+  <p><b>Interaction System</b></p>
+  <ul>
+    <li>Purpose: ...</li>
+    <li>Demo: ...</li>
+  </ul>
+</div>
+
 ## Core design principles
 - **Composable**: systems should interoperate through interfaces/events, not hard references
 - **Replaceable**: you can swap implementations (ex: different inventory UI or interaction method)
@@ -17,10 +25,37 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 
 ## Components 
 1.  ### system
-> - hello
+<div style="margin-left: 20px;">
+  <p><b>Interaction System</b></p>
+  <ul>
+    <li>Purpose: ...</li>
+    <li>Demo: ...</li>
+  </ul>
+</div>
 3.  ### system
+<div style="margin-left: 20px;">
+  <p><b>Interaction System</b></p>
+  <ul>
+    <li>Purpose: ...</li>
+    <li>Demo: ...</li>
+  </ul>
+</div>
 4.  ### system
+<div style="margin-left: 20px;">
+  <p><b>Interaction System</b></p>
+  <ul>
+    <li>Purpose: ...</li>
+    <li>Demo: ...</li>
+  </ul>
+</div>
 5.  ### system
+<div style="margin-left: 20px;">
+  <p><b>Interaction System</b></p>
+  <ul>
+    <li>Purpose: ...</li>
+    <li>Demo: ...</li>
+  </ul>
+</div>
 
 
 
