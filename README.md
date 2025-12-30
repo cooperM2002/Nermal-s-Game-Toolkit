@@ -24,16 +24,16 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
     <tr><td>
         <details>
             <summary><i>details</i></summary>
+            <img src="" alt="Demo" width="700" />
             <div>
-            <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
-            <ul>
-                <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
-                <li><b>Demo:</b> <code>Demo_Interaction.unity</code></li>
-                <li><b>Extension:</b> implement <code>IInteractable</code></li>
-            </ul>
+                <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
+                <ul>
+                    <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
+                    <li><b>Demo:</b> <code>Demo_Interaction.unity</code></li>
+                    <li><b>Extension:</b> implement <code>IInteractable</code></li>
+                </ul>
             </div>
             <p align="center">
-              <img src="docs/demo.gif" alt="Demo" width="700" />
             </p>
         </details>
     </td></tr>
