@@ -16,7 +16,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 - **Minimal coupling**: avoid “god managers”; prefer local responsibilities + messaging
 <br /><br />
 
-# Components 
+## <p>Components</p> 
 
 
 ### Interaction System
