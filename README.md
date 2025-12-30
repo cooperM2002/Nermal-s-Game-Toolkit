@@ -27,7 +27,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 1.  ### system
 <div style="margin-left: 20px;">
   <p><b>Interaction System</b></p>
-  <ul>
+  <ul style="list-style:none">
     <li>Purpose: ...</li>
     <li>Demo: ...</li>
   </ul>
