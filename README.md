@@ -32,7 +32,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
                 <li><b>Extension:</b> implement <code>IInteractable</code></li>
             </ul>
             </div>
-            <img src="https://github.com/cooperM2002/Nermal-s-Game Toolkit/blob/main/Assets/Misc/91939c833da54118aba07463d0484569.gif" alt="Interaction demo" width="700" />
+            <img src="https://github.com/cooperM2002/Nermal-s-GameToolkit/blob/main/Assets/Misc/91939c833da54118aba07463d0484569.gif" alt="Interaction demo" width="700" />
         </details>
     </td></tr>
 </table>
