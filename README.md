@@ -30,7 +30,7 @@ A Unity project focused on building a **toolkit of reusable, system-based gamepl
 <details>
   <summary><b>Interaction System</b></summary>
 
-  <div style="background: rgba(255,255,255,0.06); padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
+  <div style="border: 1px solid black; padding: 12px 14px; border-radius: 10px; margin-top: 10px;">
     <p><b>Purpose:</b> Raycast-based interaction + prompts.</p>
     <ul>
       <li><b>Key scripts:</b> <code>Interactor.cs</code>, <code>Interactable.cs</code></li>
