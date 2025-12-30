@@ -1,4 +1,4 @@
-# [Project Name]
+# Project Name
 <br>
 A Unity project focused on building a **toolkit of reusable, system-based gameplay mechanics** that draw heavy inspiration from the Immersive Sim design philosophy with an emphasis on Valve-like game feel.  
 **Goal:** provide clean, composable *systems* (inventory, interaction, AI perception, damage, etc...) that can be easily extended and customized.      
